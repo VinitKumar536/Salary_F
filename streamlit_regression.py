@@ -17,10 +17,6 @@ with open('label_encoder_gender.pkl', 'rb') as f:
 with open('onehot_encoder_geo.pkl', 'rb') as f:
     onehot_encoder_geo = pickle.load(f)
 
-
-
-st.write("Model input shape:", model.input_shape)
-
 ## streamlit app
 st.title('Estimated Salary Prediction ')
 
@@ -72,4 +68,5 @@ prediction = model.predict(input_data_scaled)
 salary = prediction[0][0]
 
 st.write(f"Estimated Salary: ${salary:.2f}")
+
 
