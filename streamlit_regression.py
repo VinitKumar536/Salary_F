@@ -5,16 +5,16 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
 import pickle
 
-model = tf.keras.models.load_model('ANN CLASSIFICATION/reg_model.h5')
+model = tf.keras.models.load_model('reg_model.h5')
 
 
-with open('ANN CLASSIFICATION/scaler.pkl', 'rb') as f:
+with open('scaler.pkl', 'rb') as f:
     scaler = pickle.load(f)
 
-with open('ANN CLASSIFICATION/label_encoder_gender.pkl', 'rb') as f:
+with open('label_encoder_gender.pkl', 'rb') as f:
     label_encoder_gender = pickle.load(f)
 
-with open('ANN CLASSIFICATION/onehot_encoder_geo.pkl', 'rb') as f:
+with open('onehot_encoder_geo.pkl', 'rb') as f:
     onehot_encoder_geo = pickle.load(f)
 
 
@@ -72,3 +72,4 @@ prediction = model.predict(input_data_scaled)
 salary = prediction[0][0]
 
 st.write(f"Estimated Salary: ${salary:.2f}")
+
